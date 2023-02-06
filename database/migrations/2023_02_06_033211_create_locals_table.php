@@ -23,11 +23,11 @@ return new class extends Migration
             $table->string('bio_title');
             $table->string('bio_body');
             $table->string('project_title');
-            $table->foreignId('local_projects_id');
+            $table->foreignId('local_projects_id')->constrained('local_projects')->cascadeOnDelete();
             $table->text('qoute_text');
             $table->string('quote_name');
             $table->text('social_text');
-            $table->foreignId('local_social_media_id');
+            $table->foreignId('local_social_media_id')->constrained('local_social_media')->cascadeOnDelete();
             $table->string('footer');
             $table->timestamps();
         });
@@ -41,6 +41,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('locals');
-
     }
 };
