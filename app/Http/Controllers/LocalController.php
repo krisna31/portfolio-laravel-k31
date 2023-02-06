@@ -30,7 +30,9 @@ class LocalController extends Controller
      */
     public function index()
     {
-        //
+        return response()->view('local.index', [
+            'locals' => Local::all(),
+        ]);
     }
 
     /**
