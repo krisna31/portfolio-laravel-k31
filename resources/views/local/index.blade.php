@@ -34,6 +34,7 @@
                         </thead>
                         <tbody>
                             @foreach ($locals as $local)
+                                {{ dd($local->projects) }}
                                 {{ $projects = $local->projects }}
                                 {{ $socmed = $local->socmeds }}
                                 <tr>

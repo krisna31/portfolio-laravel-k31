@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class LocalProjectController extends Controller
 {
     public function local() {
-        return $this->belongsTo(Local::class);
+        return $this->hasMany(Local::class);
     }
 
     /**

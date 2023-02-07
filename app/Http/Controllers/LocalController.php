@@ -6,23 +6,17 @@ use App\Models\Local;
 use App\Http\Requests\LocalRequest;
 use App\Models\LocalProject;
 use App\Models\LocalSocialMedia;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LocalController extends Controller
 {
-    /**
-     * Get all of the project for the LocalController
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function project(): HasMany
+    public function projects()
     {
-        return $this->hasMany(LocalProject::class);
+        return $this->hasMany(LocalProject::class, 'local_id');
     }
 
-    public function socialMedia(): HasMany
+    public function socialMedia()
     {
-        return $this->hasMany(LocalSocialMedia::class);
+        return $this->hasMany(LocalSocialMedia::class, 'local_id');
     }
 
     /**
