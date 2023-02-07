@@ -34,9 +34,6 @@
                         </thead>
                         <tbody>
                             @foreach ($locals as $local)
-                                {{ dd($local->projects) }}
-                                {{ $projects = $local->projects }}
-                                {{ $socmed = $local->socmeds }}
                                 <tr>
                                     {{-- <td class="border px-4 py-2">{{ $local->id }}</td>
                                     <td class="border px-4 py-2">{{ $local->slug }}</td> --}}
@@ -46,11 +43,19 @@
                                     <td class="border px-4 py-2">{{ $local->bio_title }}</td>
                                     <td class="border px-4 py-2">{{ $local->bio_body }}</td>
                                     <td class="border px-4 py-2">{{ $local->project_title }}</td>
-                                    <td class="border px-4 py-2">{{ $projects->id ?? 'default' }}</td>
+                                    <td class="border px-4 py-2">
+                                        @foreach ($local->projects as $project)
+                                            {{ $project->id ?? 'default' }}
+                                        @endforeach
+                                    </td>
                                     <td class="border px-4 py-2">{{ $local->qoute_text }}</td>
                                     <td class="border px-4 py-2">{{ $local->quote_name }}</td>
                                     <td class="border px-4 py-2">{{ $local->social_text }}</td>
-                                    <td class="border px-4 py-2">{{ $socmed->id ?? 'default' }}</td>
+                                    <td class="border px-4 py-2">
+                                        @foreach ($local->socialMedia as $socmed)
+                                            {{ $socmed->id ?? 'default' }}
+                                        @endforeach
+                                    </td>
                                     <td class="border px-4 py-2">{{ $local->footer }}</td>
                                     <td class="border px-4 py-2">{{ $local->created_at }}</td>
                                     <td class="border px-4 py-2">
