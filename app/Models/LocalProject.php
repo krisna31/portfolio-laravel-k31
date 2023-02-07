@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class LocalProject extends Model
 {
+    public function local() {
+        return $this->hasMany(Local::class);
+    }
+    
     use HasFactory;
 }

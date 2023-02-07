@@ -60,6 +60,19 @@ class DatabaseSeeder extends Seeder
             'title' => 'Project Title',
             'link_github' => 'Project Link',
             'image' => 'Project Image',
+        ])
+        ;
+        LocalProject::factory()->create([
+            'local_id' => 1,
+            'title' => 'Project Title',
+            'link_github' => 'Project Link',
+            'image' => 'Project Image',
+        ]);
+        LocalProject::factory()->create([
+            'local_id' => 1,
+            'title' => 'Project Title',
+            'link_github' => 'Project Link',
+            'image' => 'Project Image',
         ]);
 
         LocalSocialMedia::factory()->create([

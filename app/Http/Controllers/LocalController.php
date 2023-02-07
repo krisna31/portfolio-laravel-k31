@@ -9,16 +9,6 @@ use App\Models\LocalSocialMedia;
 
 class LocalController extends Controller
 {
-    public function projects()
-    {
-        return $this->hasMany(LocalProject::class, 'local_id');
-    }
-
-    public function socialMedia()
-    {
-        return $this->hasMany(LocalSocialMedia::class, 'local_id');
-    }
-
     /**
      * Display a listing of the resource.
      *
