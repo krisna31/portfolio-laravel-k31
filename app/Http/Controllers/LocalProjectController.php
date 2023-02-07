@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class LocalProjectController extends Controller
 {
+    public function local() {
+        return $this->belongsTo(Local::class);
+    }
+
     /**
      * Display a listing of the resource.
      *

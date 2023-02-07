@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('local_social_media', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('local_id')->constrained('locals')->cascadeOnDelete();
             $table->string('title');
             $table->string('link_social_media');
+            $table->string('icon');
             $table->timestamps();
         });
     }

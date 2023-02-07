@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Local;
 use App\Http\Requests\LocalRequest;
+use App\Models\LocalProject;
+use App\Models\LocalSocialMedia;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class LocalController extends Controller
@@ -15,12 +17,12 @@ class LocalController extends Controller
      */
     public function project(): HasMany
     {
-        return $this->hasMany(LocalProjectController::class, 'id', 'local_projects_id');
+        return $this->hasMany(LocalProject::class);
     }
 
     public function socialMedia(): HasMany
     {
-        return $this->hasMany(LocalSocialMediaController::class, 'id', 'local_social_media_id');
+        return $this->hasMany(LocalSocialMedia::class);
     }
 
     /**

@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('local_projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('local_id')->constrained('locals')->cascadeOnDelete();
             $table->string('title');
             $table->string('link_github');
-            $table->string('link_image');
+            $table->string('image');
             $table->timestamps();
         });
     }

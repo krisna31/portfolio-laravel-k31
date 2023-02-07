@@ -8,6 +8,9 @@ use App\Http\Requests\UpdateLocalSocialMediaRequest;
 
 class LocalSocialMediaController extends Controller
 {
+    public function local() {
+        return $this->belongsTo(Local::class, 'id', 'local_id');
+    }
     /**
      * Display a listing of the resource.
      *
