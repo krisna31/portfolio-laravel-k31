@@ -14,8 +14,7 @@
                     <table class="table-auto">
                         <thead>
                             <tr>
-                                {{-- <th class="px-4 py-2">ID</th>
-                                <th class="px-4 py-2">Slug</th> --}}
+                                <th class="px-4 py-2">Slug</th>
                                 <th class="px-4 py-2">Intro Text</th>
                                 <th class="px-4 py-2">contact me text</th>
                                 <th class="px-4 py-2">contact me link</th>
@@ -35,18 +34,13 @@
                         <tbody>
                             @foreach ($locals as $local)
                                 <tr>
-                                    {{-- <td class="border px-4 py-2">{{ $local->id }}</td>
-                                    <td class="border px-4 py-2">{{ $local->slug }}</td> --}}
+                                    <td class="border px-4 py-2">{{ $local->slug }}</td>
                                     <td class="border px-4 py-2">{{ $local->intro_text }}</td>
-                                    <td class="border px-4 py-2">{{ $local->contact_me_text }}</td>
-                                    <td class="border px-4 py-2">{{ $local->contact_me_link }}</td>
                                     <td class="border px-4 py-2">{{ $local->bio_title }}</td>
                                     <td class="border px-4 py-2">{{ $local->bio_body }}</td>
                                     <td class="border px-4 py-2">{{ $local->project_title }}</td>
                                     <td class="border px-4 py-2">
-                                        @foreach ($local->projects as $project)
-                                            {{ $project->id ?? 'default' }}
-                                        @endforeach
+                                        {{ $local->projects->length }}
                                     </td>
                                     <td class="border px-4 py-2">{{ $local->qoute_text }}</td>
                                     <td class="border px-4 py-2">{{ $local->quote_name }}</td>

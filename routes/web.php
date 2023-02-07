@@ -30,6 +30,12 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/local', LocalController::class)
     ->name('index', 'local.index')
+    ->name('create', 'local.create')
+    ->name('store', 'local.store')
+    ->name('show', 'local.show')
+    ->name('edit', 'local.edit')
+    ->name('update', 'local.update')
+    ->name('destroy', 'local.destroy')
     ;
 });
 
