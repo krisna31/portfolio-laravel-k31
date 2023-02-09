@@ -15,18 +15,19 @@ return new class extends Migration
     {
         Schema::create('locals', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
-            $table->text('landing_text');
-            $table->text('intro_text');
-            $table->text('contact_me_text');
-            $table->string('contact_me_link');
-            $table->string('bio_title');
-            $table->string('bio_body');
-            $table->string('project_title');
-            $table->text('qoute_text');
-            $table->string('quote_name');
-            $table->text('social_text');
-            $table->string('footer');
+            $table->string('slug')->unique();
+            $table->text('landing_text')->default('Landing Text');
+            $table->text('landing_body')->default('Landing Body');
+            $table->text('intro_text')->default('Intro Text');
+            $table->text('contact_me_text')->default('Contact Me Text');
+            $table->string('contact_me_link')->default('Contact Me Link');
+            $table->string('bio_title')->default('Bio Title');
+            $table->string('bio_body')->default('Bio Body');
+            $table->string('project_title')->default('Project title');
+            $table->text('qoute_text')->default('Qoute Text');
+            $table->string('quote_name')->default('Quote Name');
+            $table->text('social_text')->default('Social Text');
+            $table->string('footer')->default("footer | 2023");
             $table->timestamps();
         });
     }

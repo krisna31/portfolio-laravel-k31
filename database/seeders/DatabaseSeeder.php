@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         Local::factory()->create([
             'slug' => 'en',
             'landing_text' => 'Landing Text',
+            'landing_body' => 'Landing Text',
             'intro_text' => 'Intro Text',
             'contact_me_text' => 'Contact Me Text',
             'contact_me_link' => 'Contact Me Link',
@@ -43,6 +44,7 @@ class DatabaseSeeder extends Seeder
         Local::factory()->create([
             'slug' => 'id',
             'landing_text' => 'Landing Text',
+            'landing_body' => 'Landing Text',
             'intro_text' => 'Intro Text',
             'contact_me_text' => 'Contact Me Text',
             'contact_me_link' => 'Contact Me Link',
@@ -58,6 +60,7 @@ class DatabaseSeeder extends Seeder
         Local::factory()->create([
             'slug' => 'jj',
             'landing_text' => 'Landing Text',
+            'landing_body' => 'Landing Text',
             'intro_text' => 'Intro Text',
             'contact_me_text' => 'Contact Me Text',
             'contact_me_link' => 'Contact Me Link',

@@ -34,13 +34,13 @@ class LocalController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\LocalRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LocalRequest $request)
     {
         Local::create($request->validated());
 
-        return redirect()->route('local.index');
+        return redirect()->route('local.index')->with('success', 'Data Berhasil Dibuat');
     }
 
     /**
@@ -83,12 +83,12 @@ class LocalController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Local  $local
-    //  * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Local $local)
     {
         $local->delete();
 
-        return response()->redirectTo('local')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('local.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

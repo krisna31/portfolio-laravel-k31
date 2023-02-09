@@ -25,7 +25,25 @@ class LocalRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            'slug' => [
+                'string',
+                'required',
+                'unique:locals',
+                'min:3',
+                'max:255'
+            ],
+            'landing_text' => ['string', 'max:255'],
+            'landing_body' => ['string', 'max:255'],
+            'intro_text' => ['string', 'max:255'],
+            'contact_me_text' => ['string', 'max:255'],
+            'contact_me_link' => ['string', 'max:255'],
+            'bio_title' => ['string', 'max:255'],
+            'bio_body' => ['string', 'max:255'],
+            'project_title' => ['string', 'max:255'],
+            'qoute_text' => ['string', 'max:255'],
+            'quote_name' => ['string', 'max:255'],
+            'social_text' => ['string', 'max:255'],
+            'footer' => ['string', 'max:255'],
         ];
     }
 }

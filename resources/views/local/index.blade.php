@@ -46,17 +46,19 @@
                                         <td class="border px-4 py-2">{{ $local->updated_at }}</td>
                                         <td class="border px-4 py-2">
                                             <div class="btn-group btn-group-vertical lg:btn-group-horizontal">
-                                                <a href="{{ route('local.show', $local) }}"
-                                                    class="btn btn-info">View</a>
-                                                <a href="{{ route('local.edit', $local) }}"
-                                                    class="btn btn-warning">Edit</a>
-                                                <label for="{{ $local->slug }}" class="btn btn-danger">Delete</label>
+                                                <a href="{{ route('local.show', $local) }}">
+                                                    <button class="btn btn-info">View</button></a>
+                                                <a href="{{ route('local.edit', $local) }}">
+                                                    <button class="btn btn-warning">Edit</button></a>
+                                                <label for="{{ $local->slug }}" class="btn btn-error">
+                                                    Delete
+                                                </label>
                                                 <input type="checkbox" id="{{ $local->slug }}" class="modal-toggle" />
                                                 <label for="{{ $local->slug }}"
                                                     class="modal modal-bottom sm:modal-middle">
-                                                    <div class="modal-box">
+                                                    <div class="modal-box relative">
                                                         <label for="{{ $local->slug }}"
-                                                            class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                            class="btn btn-sm rounded-full absolute right-2 top-2">✕</label>
                                                         <h3 class="font-bold text-lg">Are you sure to delete
                                                             {{ $local->slug }}</h3>
                                                         <div class="modal-action">
