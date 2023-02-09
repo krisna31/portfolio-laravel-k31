@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col items-center">
                     <h1 class="text-2xl mb-3">Edit Data In Local</h1>
-                    <form action="{{ route('local.edit') }}" class="form-control" method="POST">
+                    <form action="{{ route('local.update', $local) }}" class="form-control" method="POST">
                         @csrf
                         @method('PUT')
                         @if ($errors->any())
