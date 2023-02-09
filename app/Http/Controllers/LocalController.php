@@ -16,9 +16,8 @@ class LocalController extends Controller
      */
     public function index()
     {
-        return response()->view('local.index', [
-            'locals' => Local::all(),
-        ]);
+        $locals = Local::all();
+        return response()->view('local.index', compact('locals'));
     }
 
     /**
@@ -28,7 +27,7 @@ class LocalController extends Controller
      */
     public function create()
     {
-        //
+        return response()->view('local.create');
     }
 
     /**
@@ -39,7 +38,9 @@ class LocalController extends Controller
      */
     public function store(LocalRequest $request)
     {
-        //
+        Local::create($request->validated());
+
+        return redirect()->route('local.index');
     }
 
     /**
@@ -50,7 +51,7 @@ class LocalController extends Controller
      */
     public function show(Local $local)
     {
-        //
+        return response()->view('local.show', compact('local'));
     }
 
     /**
@@ -61,19 +62,21 @@ class LocalController extends Controller
      */
     public function edit(Local $local)
     {
-        //
+        return response()->view('local.edit', compact('local'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateLocalRequest  $request
+     * @param  \App\Http\Requests\LocalRequest  $request
      * @param  \App\Models\Local  $local
      * @return \Illuminate\Http\Response
      */
     public function update(LocalRequest $request, Local $local)
     {
-        //
+        $local->update($request->validated());
+
+        return redirect()->route('local.index');
     }
 
     /**
@@ -84,6 +87,8 @@ class LocalController extends Controller
      */
     public function destroy(Local $local)
     {
-        //
+        $local->delete();
+
+        return redirect()->route('local.index');
     }
 }

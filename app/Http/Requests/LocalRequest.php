@@ -25,7 +25,7 @@ class LocalRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            
         ];
     }
 }
