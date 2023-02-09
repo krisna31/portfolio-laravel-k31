@@ -36,7 +36,7 @@
                         <label class="input-group">
                             <span>Landing Text</span>
                             <input name="landing_text" type="text" placeholder="Landing Text"
-                                class="input input-bordered" value="{{ old('landing_text', $slug->landing_text) }}" />
+                                class="input input-bordered" value="{{ old('landing_text', $local->landing_text) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Landing Body</span>
@@ -44,7 +44,7 @@
                         <label class="input-group">
                             <span>Landing Body</span>
                             <input name="landing_body" type="text" placeholder="Landing Body"
-                                class="input input-bordered" value="{{ old('landing_body', $slug->landing_body) }}" />
+                                class="input input-bordered" value="{{ old('landing_body', $local->landing_body) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Intro Text</span>
@@ -52,7 +52,7 @@
                         <label class="input-group">
                             <span>Intro Text</span>
                             <input name="intro_text" type="text" placeholder="Intro Text"
-                                class="input input-bordered" value="{{ old('intro_text', $slug->intro_text) }}" />
+                                class="input input-bordered" value="{{ old('intro_text', $local->intro_text) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Contact Me Text</span>
@@ -61,7 +61,7 @@
                             <span>Contact Me Text</span>
                             <input name="contact_me_text" type="text" placeholder="Contact Me Text"
                                 class="input input-bordered"
-                                value="{{ old('contact_me_text', $slug->contact_me_text) }}" />
+                                value="{{ old('contact_me_text', $local->contact_me_text) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Contact Me Link</span>
@@ -70,7 +70,7 @@
                             <span>Contact Me Link</span>
                             <input name="contact_me_link" type="text" placeholder="Contact Me Link"
                                 class="input input-bordered"
-                                value="{{ old('contact_me_link', $slug->contact_me_link) }}" />
+                                value="{{ old('contact_me_link', $local->contact_me_link) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Bio Title</span>
@@ -78,7 +78,7 @@
                         <label class="input-group">
                             <span>Bio Title</span>
                             <input name="bio_title" type="text" placeholder="Bio Title" class="input input-bordered"
-                                value="{{ old('bio_title', $slug->bio_title) }}" />
+                                value="{{ old('bio_title', $local->bio_title) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Bio Body</span>
@@ -86,7 +86,7 @@
                         <label class="input-group">
                             <span>Bio Body</span>
                             <input name="bio_body" type="text" placeholder="Bio Body" class="input input-bordered"
-                                value="{{ old('bio_body', $slug->bio_body) }}" />
+                                value="{{ old('bio_body', $local->bio_body) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Qoute Text</span>
@@ -94,7 +94,7 @@
                         <label class="input-group">
                             <span>Qoute Text</span>
                             <input name="quote_text" type="text" placeholder="Qoute Text"
-                                class="input input-bordered" value="{{ old('quote_text', $slug->quote_text) }}" />
+                                class="input input-bordered" value="{{ old('quote_text', $local->quote_text) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Quote Name</span>
@@ -102,7 +102,7 @@
                         <label class="input-group">
                             <span>Quote Name</span>
                             <input name="quote_name" type="text" placeholder="Quote Name"
-                                class="input input-bordered" value="{{ old('quote_name', $slug->quote_name) }}" />
+                                class="input input-bordered" value="{{ old('quote_name', $local->quote_name) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Social Text</span>
@@ -110,7 +110,7 @@
                         <label class="input-group">
                             <span>Social Text</span>
                             <input name="social_text" type="text" placeholder="Social Text"
-                                class="input input-bordered" value="{{ old('social_text', $slug->social_text) }}" />
+                                class="input input-bordered" value="{{ old('social_text', $local->social_text) }}" />
                         </label>
                         <label class="label">
                             <span class="label-text">Footer</span>
@@ -118,7 +118,7 @@
                         <label class="input-group">
                             <span>Footer</span>
                             <input name="footer" type="text" placeholder="Footer" class="input input-bordered"
-                                value="{{ old('footer', $slug->footer) }}" />
+                                value="{{ old('footer', $local->footer) }}" />
                         </label>
                         <button type="submit" class="btn btn-success mt-6">Create</button>
                     </form>
