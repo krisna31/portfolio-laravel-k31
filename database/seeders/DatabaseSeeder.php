@@ -55,6 +55,21 @@ class DatabaseSeeder extends Seeder
             'footer' => 'Footer',
         ]);
 
+        Local::factory()->create([
+            'slug' => 'jj',
+            'landing_text' => 'Landing Text',
+            'intro_text' => 'Intro Text',
+            'contact_me_text' => 'Contact Me Text',
+            'contact_me_link' => 'Contact Me Link',
+            'bio_title' => 'Bio Title',
+            'bio_body' => 'Bio Body',
+            'project_title' => 'Project Title',
+            'qoute_text' => 'Qoute Text',
+            'quote_name' => 'Quote Name',
+            'social_text' => 'Social Text',
+            'footer' => 'Footer',
+        ]);
+
         LocalProject::factory()->create([
             'local_id' => 1,
             'title' => 'Project Title',

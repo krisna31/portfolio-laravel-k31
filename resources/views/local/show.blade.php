@@ -1,44 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard | Content') }}
+            Dashboard | Local | {{ $local->id }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-
-                <div class="loader-wrapper">
-                    <div class="loader"></div>
-                    <div class="loader-section section-left"></div>
-                    <div class="loader-section section-right"></div>
-                </div>
-
-                <!-- canvas for background of three js -->
-                <canvas id="bg" class="fixed top-0 left-0"></canvas>
-
-                <main class="w-screen text-slate-300 z-50 absolute mt-3 pt-16 px-0 font-bold">
-                    @if (Route::has('login'))
-                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                            @auth
-                                {{-- <a href="{{ url('/dashboard') }}"
-                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a> --}}
-                            @else
-                                <a href="{{ route('login') }}"
-                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                @endif
-                            @endauth
-                        </div>
-                    @endif
+                <main class="mt-3 pt-16 px-0 font-bold text-black">
                     <div class="flex items-center my-48 mt-80 rounded-md justify-center lg:mr-5 lg:mb-96 lg:mt-48">
                         <header
                             class="sky-tr p-3 mr-3 text-3xl font-semibold bg-opacity-50 shadow-lg lg:ml-auto lg:text-4xl backdrop-blur-sm">
-                            <h1>Jelvin Krisna Putra - Student</h1>
+                            <h1>{{ $local->intro_text ?? 'Jelvin Krisna Putra - Student' }}</h1>
                             <p>My Portfolio</p>
                         </header>
                     </div>

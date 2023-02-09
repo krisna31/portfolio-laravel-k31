@@ -19,7 +19,7 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('local.index')" :active="request()->routeIs('local.index')">
-                        {{ __('Content') }}
+                        {{ __('Local') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -85,8 +85,8 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('local.index')" :active="request()->routeIs('local.index')">
-                {{ __('Content') }}
+            <x-responsive-nav-link :href="route('local.index')" :active="request()->routeIs('local.*')">
+                {{ __('Local') }}
             </x-responsive-nav-link>
         </div>
 
