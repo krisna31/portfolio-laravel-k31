@@ -24,12 +24,13 @@ class LocalRequest extends FormRequest
      */
     public function rules()
     {
+        $id = request()->route('local')->id ?? null;
         return [
             'slug' => [
                 'string',
                 'required',
-                'unique:locals',
-                'min:3',
+                'unique:locals,slug,'.$id,
+                'min:2',
                 'max:255'
             ],
             'landing_text' => ['string', 'max:255'],
