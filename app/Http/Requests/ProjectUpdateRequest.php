@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectRequest extends FormRequest
+class ProjectUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class ProjectRequest extends FormRequest
             'local_id' => ['required', 'integer'],
             'title' => ['required', 'string', 'max:255'],
             'link_github' => ['required', 'string', 'max:255'],
-            'image' => ['required', 'image', 'mimes:png,jpg,jpeg,gif,svg', 'max:3072'],
+            'image' => ['image', 'mimes:png,jpg,jpeg,gif,svg', 'max:3072'],
         ];
     }
 }

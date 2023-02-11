@@ -3,6 +3,13 @@
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard | Project | Create') }}
         </h2>
+        <script defer>
+            function preview() {
+								frame.src=URL.createObjectURL(event.target.files[0]);
+								frame.width = 500
+								frame.height = 500
+						}
+        </script>
     </x-slot>
 
     <div class="py-12">
@@ -35,18 +42,19 @@
                             <label class="input-group mb-3">
                                 <span>Title</span>
                                 <input name="title" type="text" placeholder="Project Title"
-                                    class="input input-bordered" required />
+                                    class="input input-bordered" required value="{{ old('title', "") }}" />
                             </label>
                             <label class="input-group mb-3">
                                 <span>Link Github</span>
                                 <input name="link_github" type="url" placeholder="Github Link"
-                                    class="input input-bordered" required />
+                                    class="input input-bordered" required value="{{ old('link_github', '') }}" />
                             </label>
                             <label class="input-group mb-3">
                                 <span>Picture</span>
                                 <input name="image" type="file" placeholder="Image" class="input input-bordered"
-                                    required accept="image/*" />
-                            </label>
+                                    required accept="image/*" onchange="preview()" />
+														</label>
+															<img id="frame" src="#" alt="Preview Of Your Image" />
                             <button type="submit" class="btn btn-success">Create</button>
                         </div>
                     </form>

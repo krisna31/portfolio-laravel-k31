@@ -2,13 +2,11 @@
 
 namespace App\Http\Requests;
 
-use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class ProfileUpdateRequest extends FormRequest
+class ProjectStoreRequest extends FormRequest
 {
-        /**
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -21,13 +19,15 @@ class ProfileUpdateRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => ['string', 'max:255'],
-            'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'local_id' => ['required', 'integer'],
+            'title' => ['required', 'string', 'max:255'],
+            'link_github' => ['required', 'string', 'max:255'],
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg,gif,svg', 'max:3072'],
         ];
     }
 }

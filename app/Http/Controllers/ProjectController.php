@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Http\Requests\ProjectStoreRequest;
+use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Local;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -41,9 +43,8 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(ProjectRequest $request)
+    public function store(ProjectStoreRequest $request)
     {
-
         // Store the validated input data.
         $validated = $request->validated();
 
@@ -82,7 +83,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return response()->view('project.edit', compact('project'));
+        $locals = Local::all();
+        return response()->view('project.edit', compact('project','locals'));
     }
 
     /**
@@ -92,9 +94,20 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProjectRequest $request, Project $project)
+    public function update(ProjectUpdateRequest $request, Project $project)
     {
-        $project->update($request->validated());
+        $validated = $request->validated();
+        if ($request->file('image')) {
+            $image_path = 'public/project/'.$project->image;
+            Storage::exists($image_path) && Storage::delete($image_path);
+            $path = "project_" . uniqid() . "." . $request->file('image')->extension();
+            $request->file('image')->storeAs("public/project", $path);
+            $validated['image'] = basename($path);
+        }
+        
+        $project->update($validated);
+
+        // Redirect the user to the project list.
         return redirect()->route('project.index')->with('success', 'Data Berhasil Diubah');
     }
 
