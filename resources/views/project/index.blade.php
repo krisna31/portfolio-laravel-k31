@@ -48,18 +48,18 @@
                                                     <button class="btn btn-info">View</button></a>
                                                 <a href="{{ route('project.edit', $project) }}">
                                                     <button class="btn btn-warning">Edit</button></a>
-                                                <label for="{{ $project->slug }}" class="btn btn-error">
+                                                <label for="{{ $project->id }}" class="btn btn-error">
                                                     Delete
                                                 </label>
-                                                <input type="checkbox" id="{{ $project->slug }}"
+                                                <input type="checkbox" id="{{ $project->id }}"
                                                     class="modal-toggle" />
-                                                <label for="{{ $project->slug }}"
+                                                <label for="{{ $project->id }}"
                                                     class="modal modal-bottom sm:modal-middle">
                                                     <div class="modal-box relative">
-                                                        <label for="{{ $project->slug }}"
+                                                        <label for="{{ $project->id }}"
                                                             class="btn btn-sm rounded-full absolute right-2 top-2">✕</label>
                                                         <h3 class="font-bold text-lg">Are you sure to delete
-                                                            {{ $project->slug }}</h3>
+                                                            {{ $project->id }}</h3>
                                                         <div class="modal-action">
                                                             <form action="{{ route('project.destroy', $project) }}"
                                                                 method="post">

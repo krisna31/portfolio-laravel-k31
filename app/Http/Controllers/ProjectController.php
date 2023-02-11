@@ -6,6 +6,8 @@ use App\Http\Requests\ProjectRequest;
 use App\Models\Local;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -30,9 +32,9 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         $locals = Local::all();
-        return response()->view('project.create',compact('projects','locals'));
+        return response()->view('project.create', compact('projects', 'locals'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -41,7 +43,23 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        Project::create($request->validated());
+
+        // Store the validated input data.
+        $validated = $request->validated();
+
+        // Create a unique path for the image.
+        $path = "project_" . uniqid() . "." . $request->file('image')->extension();
+
+        // Store the image at the specified path.
+        $request->file('image')->storeAs("public/project", $path);
+
+        // Get the image file name.
+        $validated['image'] = basename($path);
+
+        // Create a project with the validated data.
+        Project::create($validated);
+
+        // Redirect the user to the project list.
         return redirect()->route('project.index')->with('success', 'Data Berhasil Dibuat');
     }
 
@@ -88,6 +106,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $image_path = 'public/project/'.$project->image;
+        Storage::exists($image_path) && Storage::delete($image_path);
         $project->delete();
         return redirect()->route('project.index')->with('success', 'Data Berhasil Dihapus');
     }
