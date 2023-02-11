@@ -39,7 +39,8 @@ class LocalController extends Controller
     public function store(LocalRequest $request)
     {
         Local::create($request->validated());
-
+        $newName = "project_".date_create()."_".$request->file('image')->extension();
+        $request->file('image')->storeAs("public/project",$newName);
         return redirect()->route('local.index')->with('success', 'Data Berhasil Dibuat');
     }
 

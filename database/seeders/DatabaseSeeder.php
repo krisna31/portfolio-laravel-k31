@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Local;
 use App\Models\LocalProject;
 use App\Models\LocalSocialMedia;
+use App\Models\Project;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -73,21 +74,21 @@ class DatabaseSeeder extends Seeder
             'footer' => 'Footer',
         ]);
 
-        LocalProject::factory()->create([
+        Project::factory()->create([
             'local_id' => 1,
             'title' => 'Project Title',
             'link_github' => 'https://github.com/krisna31',
             'image' => 'Project Image',
         ]);
 
-        LocalProject::factory()->create([
+        Project::factory()->create([
             'local_id' => 1,
             'title' => 'Project Title',
             'link_github' => 'Project Link',
             'image' => 'Project Image',
         ]);
 
-        LocalProject::factory()->create([
+        Project::factory()->create([
             'local_id' => 1,
             'title' => 'Project Title',
             'link_github' => 'Project Link',

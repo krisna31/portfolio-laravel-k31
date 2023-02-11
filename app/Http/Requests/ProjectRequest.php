@@ -24,7 +24,10 @@ class ProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            'local_id' => ['required', 'integer'],
+            'title' => ['required', 'string', 'max:255'],
+            'link_github' => ['required', 'string', 'max:255'],
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg,gif,svg', 'max:3072'],
         ];
     }
 }

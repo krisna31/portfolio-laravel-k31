@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LocalProject extends Model
+class Project extends Model
 {
     public function local() {
-        return $this->hasMany(Local::class);
+        return $this->belongsTo(Local::class);
     }
     
     use HasFactory;
+
+    protected $guarded = ['id'];
 }
