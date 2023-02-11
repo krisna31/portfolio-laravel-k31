@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             'bio_title' => 'Bio Title',
             'bio_body' => 'Bio Body',
             'project_title' => 'Project Title',
-            'qoute_text' => 'Qoute Text',
+            'quote_text' => 'Qoute Text',
             'quote_name' => 'Quote Name',
             'social_text' => 'Social Text',
             'footer' => 'Footer',
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'bio_title' => 'Bio Title',
             'bio_body' => 'Bio Body',
             'project_title' => 'Project Title',
-            'qoute_text' => 'Qoute Text',
+            'quote_text' => 'Qoute Text',
             'quote_name' => 'Quote Name',
             'social_text' => 'Social Text',
             'footer' => 'Footer',
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             'bio_title' => 'Bio Title',
             'bio_body' => 'Bio Body',
             'project_title' => 'Project Title',
-            'qoute_text' => 'Qoute Text',
+            'quote_text' => 'Qoute Text',
             'quote_name' => 'Quote Name',
             'social_text' => 'Social Text',
             'footer' => 'Footer',
@@ -76,16 +76,10 @@ class DatabaseSeeder extends Seeder
         LocalProject::factory()->create([
             'local_id' => 1,
             'title' => 'Project Title',
-            'link_github' => 'Project Link',
-            'image' => 'Project Image',
-        ])
-        ;
-        LocalProject::factory()->create([
-            'local_id' => 1,
-            'title' => 'Project Title',
-            'link_github' => 'Project Link',
+            'link_github' => 'https://github.com/krisna31',
             'image' => 'Project Image',
         ]);
+
         LocalProject::factory()->create([
             'local_id' => 1,
             'title' => 'Project Title',
@@ -93,11 +87,11 @@ class DatabaseSeeder extends Seeder
             'image' => 'Project Image',
         ]);
 
-        LocalSocialMedia::factory()->create([
+        LocalProject::factory()->create([
             'local_id' => 1,
-            'title' => 'Social Media title',
-            'link_social_media' => 'Social Media Link',
-            'icon' => 'Social Media Icon',
+            'title' => 'Project Title',
+            'link_github' => 'Project Link',
+            'image' => 'Project Image',
         ]);
     }
 }

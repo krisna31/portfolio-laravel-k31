@@ -12,7 +12,7 @@
                     <div class="flex items-center rounded-md justify-center lg:mr-5">
                         <header
                             class="sky-tr p-3 mr-3 text-3xl font-semibold bg-opacity-50 shadow-lg lg:ml-auto lg:text-4xl backdrop-blur-sm">
-                            <h1>{{ $local->landing_text ?? 'Jelvin Krisna Putra - Student' }}</h1>
+                            <h1>{{ $local->landing_text }}</h1>
                             <p>{{ $local->landing_body }}</p>
                         </header>
                     </div>
@@ -37,12 +37,12 @@
                     <section
                         class="sky-tr backdrop-blur-sm flex flex-col m-5 p-5 rounded-md shadow-md container mx-auto">
                         <h2 class="text-2xl text-center">{{ $local->project_title }}</h2>
-                        @foreach ($local->projects as $project)
-                            <div
-                                class="my-5 flex-col md:flex-wrap md:flex-row justify-center items-center gap-4 grid grid-cols-1 md:grid-cols-2">
+                        <div
+                            class="my-5 flex-col md:flex-wrap md:flex-row justify-center items-center gap-4 grid grid-cols-1 md:grid-cols-2">
+                            @foreach ($local->projects as $project)
                                 <div class="flex justify-center items-center gap-4 w-full">
                                     <div class="flex flex-col justify-center items-center gap-4">
-                                        <p class="text-center">{{ $project->project_name }}</p>
+                                        <p class="text-center">{{ $project->title }}</p>
                                         <a href="{{ $project->link_github }}" title="Link Project Sinodes Tailwind"
                                             rel="noopener noreferrer" target="_blank"
                                             class="transition-all text-center hover:text-black"><svg
@@ -54,17 +54,17 @@
                                     </div>
                                     <img src="{{ asset('assets/1.png') }}" alt="First Project" class="w-2/3 h-1/2" />
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </section>
 
                     <div class="flex items-center mx-5 sky-tr flex-col md:mx-52 lg:mx-80 rounded-md backdrop-blur-sm">
                         <blockquote class="p-6 text-base font-bold lg:text-xl">
                             <p>
-                                "{{ $local->qoute_text }}”
+                                "{{ $local->qoute_text }}"
                                 <br />
                                 <br />
-                                -{{ $local->quote_name }}
+                                {{ $local->quote_name }}
                             </p>
                         </blockquote>
                     </div>

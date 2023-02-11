@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('bio_title')->default('Bio Title');
             $table->string('bio_body')->default('Bio Body');
             $table->string('project_title')->default('Project title');
-            $table->text('qoute_text')->default('Qoute Text');
+            $table->text('quote_text')->default('Qoute Text');
             $table->string('quote_name')->default('Quote Name');
             $table->text('social_text')->default('Social Text');
             $table->string('footer')->default("footer | 2023");
