@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectRequest;
 use App\Models\LocalProject;
 use Illuminate\Http\Request;
 
-class LocalProjectController extends Controller
+class ProjectController extends Controller
 {
 
     /**
@@ -15,7 +16,8 @@ class LocalProjectController extends Controller
      */
     public function index()
     {
-        //
+        $localProjects = LocalProject::all();
+        return response()->view('project.index', compact('localProjects'));
     }
 
     /**
@@ -25,18 +27,19 @@ class LocalProjectController extends Controller
      */
     public function create()
     {
-        //
+        return response()->view('project.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        //
+        LocalProject::create($request->validated());
+        return redirect()->route('project.index')->with('success', 'Data Berhasil Dibuat');
     }
 
     /**
@@ -47,7 +50,7 @@ class LocalProjectController extends Controller
      */
     public function show(LocalProject $localProject)
     {
-        //
+        return response()->view('project.show', compact('localProject'));
     }
 
     /**
@@ -58,7 +61,7 @@ class LocalProjectController extends Controller
      */
     public function edit(LocalProject $localProject)
     {
-        //
+        return response()->view('project.edit', compact('localProject'));
     }
 
     /**
@@ -66,21 +69,23 @@ class LocalProjectController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\LocalProject  $localProject
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, LocalProject $localProject)
+    public function update(ProjectRequest $request, LocalProject $localProject)
     {
-        //
+        $localProject->update($request->validated());
+        return redirect()->route('project.index')->with('success', 'Data Berhasil Diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\LocalProject  $localProject
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(LocalProject $localProject)
     {
-        //
+        $localProject->delete();
+        return redirect()->route('project.index')->with('success', 'Data Berhasil Dihapus');
     }
 }

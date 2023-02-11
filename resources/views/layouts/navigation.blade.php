@@ -20,8 +20,14 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('local.index')" :active="request()->routeIs('local.index')">
+                    <x-nav-link :href="route('local.index')" :active="request()->routeIs('local.*')">
                         {{ __('Local') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('project.index')" :active="request()->routeIs('project.*')">
+                        {{ __('Project') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -89,6 +95,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('local.index')" :active="request()->routeIs('local.*')">
                 {{ __('Local') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('project.index')" :active="request()->routeIs('project.*')">
+                {{ __('Project') }}
             </x-responsive-nav-link>
         </div>
 

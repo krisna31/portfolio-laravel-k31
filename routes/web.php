@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
+use App\Models\LocalProject;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/local', LocalController::class);
+    Route::resource('/project', ProjectController::class);
 });
 
 require __DIR__.'/auth.php';
