@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard | Local') }}
+            {{ __('Dashboard | Local | ' . $local->slug) }}
         </h2>
     </x-slot>
 
@@ -10,21 +10,21 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <form action="{{ route('local.store') }}" class="form-control" method="POST">
                     <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col items-center">
-                        <h1 class="text-2xl mb-3">Create New Data In Local</h1>
+                        <h1 class="text-2xl mb-3">Edit Data In Local</h1>
                         <label class="input-group">
-                            <input name="slug" autofocus type="text" placeholder="slug"
-                                class="input input-bordered" value="{{ old('slug', $local->slug) }}" />
+                            <input name="slug" autofocus type="text" placeholder="slug" class="input input-bordered"
+                                value="{{ old('slug', $local->slug) }}" />
                         </label>
                         @csrf
                         @if ($errors->any())
-                            <div class="alert alert-error flex flex-col gap-1 ">
-                                <p><strong>Opps Something went wrong</strong></p>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <div class="alert alert-error flex flex-col gap-1 ">
+                            <p><strong>Opps Something went wrong</strong></p>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
                         <main class="mt-3 pt-16 px-0 font-bold text-black flex flex-col">
                             <div class="flex items-center rounded-md justify-center lg:mr-5">
@@ -76,17 +76,13 @@
                                             value="{{ old('bio_title', $local->bio_title) }}" />
                                     </label>
                                 </h2>
-                                <p class="leading-7 my-3 text-base md:text-xl">
-                                    <label class="input-group">
-                                        <input name="bio_body" type="text" placeholder="Bio Body"
-                                            class="input input-bordered"
-                                            value="{{ old('bio_body', $local->bio_body) }}" />
-                                    </label>
+                                <textarea cols="60" rows="10" name=" bio_body" class="textarea textarea-ghost"
+                                    placeholder="Bio Body">{{ old('bio_body', $local->bio_body) }}</textarea>
                                 </p>
                             </section>
 
-                            <section
-                                class="sky-tr backdrop-blur-sm flex flex-col m-5 p-5 rounded-md shadow-md container mx-auto">
+                            <section class=" sky-tr backdrop-blur-sm flex flex-col m-5 p-5 rounded-md shadow-md container
+                                            mx-auto">
                                 <label class="input-group flex justify-center items-center">
                                     <input name="project_title" type="text" placeholder="Bio Body"
                                         class="input input-bordered text-center bg-transparent"
@@ -214,7 +210,7 @@
                                 </label>
                             </footer>
                         </main>
-                        <button type="submit" class="btn btn-success mt-6">Create</button>
+                        <button type="submit" class="btn btn-success mt-6">Edit</button>
                     </div>
                 </form>
             </div>

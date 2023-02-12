@@ -11,7 +11,7 @@ class Local extends Model
     protected $guarded = ['id'];
     public function projects()
     {
-        return $this->hasMany(LocalProject::class, 'local_id');
+        return $this->hasMany(Project::class, 'local_id');
     }
 
     public function socialMedia()

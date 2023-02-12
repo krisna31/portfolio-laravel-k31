@@ -12,19 +12,19 @@
                     <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col items-center">
                         <h1 class="text-2xl mb-3">Create New Data In Local</h1>
                         <label class="input-group">
-                            <input name="slug" autofocus type="text" placeholder="slug"
-                                class="input input-bordered" value="{{ old('slug', '') }}" />
+                            <input name="slug" autofocus type="text" placeholder="slug" class="input input-bordered"
+                                value="{{ old('slug', '') }}" />
                         </label>
                         @csrf
                         @if ($errors->any())
-                            <div class="alert alert-error flex flex-col gap-1 ">
-                                <p><strong>Opps Something went wrong</strong></p>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <div class="alert alert-error flex flex-col gap-1 ">
+                            <p><strong>Opps Something went wrong</strong></p>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
                         <main class="mt-3 pt-16 px-0 font-bold text-black flex flex-col">
                             <div class="flex items-center rounded-md justify-center lg:mr-5">
@@ -72,14 +72,12 @@
                                 <h2 class="text-2xl mb-3 md:text-3xl">
                                     <label class="input-group">
                                         <input name="bio_title" type="text" placeholder="Bio Title"
-                                            class="input input-bordered" value="{{ old('bio_title', 'Bio Title') }}" />
+                                            class="input input-bordered"
+                                            value="{{ old('bio_title', $local->bio_title) }}" />
                                     </label>
                                 </h2>
-                                <p class="leading-7 my-3 text-base md:text-xl">
-                                    <label class="input-group">
-                                        <input name="bio_body" type="text" placeholder="Bio Body"
-                                            class="input input-bordered" value="{{ old('bio_body', 'Bio Body') }}" />
-                                    </label>
+                                <textarea cols="60" rows="10" name=" bio_body" class="textarea textarea-ghost"
+                                    placeholder="Bio Body">{{ old('bio_body', "Bio Body") }}</textarea>
                                 </p>
                             </section>
 

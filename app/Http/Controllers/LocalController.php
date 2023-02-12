@@ -21,6 +21,17 @@ class LocalController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function portfolio()
+    {
+        $locals = Local::with(['projects','socialMedia'])->get();
+        return response()->view('root', compact('locals'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

@@ -27,72 +27,47 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Local::factory()->create([
-            'slug' => 'en',
-            'landing_text' => 'Landing Text',
-            'landing_body' => 'Landing Text',
-            'intro_text' => 'Intro Text',
-            'contact_me_text' => 'Contact Me Text',
-            'contact_me_link' => 'Contact Me Link',
-            'bio_title' => 'Bio Title',
-            'bio_body' => 'Bio Body',
-            'project_title' => 'Project Title',
-            'quote_text' => 'Qoute Text',
-            'quote_name' => 'Quote Name',
-            'social_text' => 'Social Text',
-            'footer' => 'Footer',
-        ]);
-
-        Local::factory()->create([
-            'slug' => 'id',
-            'landing_text' => 'Landing Text',
-            'landing_body' => 'Landing Text',
-            'intro_text' => 'Intro Text',
-            'contact_me_text' => 'Contact Me Text',
-            'contact_me_link' => 'Contact Me Link',
-            'bio_title' => 'Bio Title',
-            'bio_body' => 'Bio Body',
-            'project_title' => 'Project Title',
-            'quote_text' => 'Qoute Text',
-            'quote_name' => 'Quote Name',
-            'social_text' => 'Social Text',
-            'footer' => 'Footer',
-        ]);
-
-        Local::factory()->create([
-            'slug' => 'jj',
-            'landing_text' => 'Landing Text',
-            'landing_body' => 'Landing Text',
-            'intro_text' => 'Intro Text',
-            'contact_me_text' => 'Contact Me Text',
-            'contact_me_link' => 'Contact Me Link',
-            'bio_title' => 'Bio Title',
-            'bio_body' => 'Bio Body',
-            'project_title' => 'Project Title',
-            'quote_text' => 'Qoute Text',
-            'quote_name' => 'Quote Name',
-            'social_text' => 'Social Text',
-            'footer' => 'Footer',
+            'slug' => 'default',
+            'landing_text' => 'Jelvin Krisna Putra - Student',
+            'landing_body' => 'My Portfolio',
+            'intro_text' => "I was born in 2003, now i'm student of University Multi Data Palembang",
+            'contact_me_text' => "Contact Me",
+            'contact_me_link' => '#socmed',
+            'bio_title' => '📜 Biography 📜',
+            'bio_body' => "Hello, I'm Jelvin Krisna Putra i was born at Palembang city in 2003, my interest with coding and technology started at young age, and has become my life-long love. On this website you will discover some of my simple projects that created with my main languange Javascript, after year i was learn about basic of html, css, and Javascript i then step further to learn React, SQL, and many other technology. Until now i have many skills which are Html, Css, Js, Java, Git, Github for framework i can React, Tailwind, Bootstrap, For the backend i understand Firebase.",
+            'project_title' => '🚀 My Projects 🚀',
+            'quote_text' => "Programming isn't about what you know; it's about what you can figure out.",
+            'quote_name' => 'Chris Pine',
+            'social_text' => 'Social Media',
+            'footer' => '@2023 | K31 | Laravel Tailwind DaisyUi',
         ]);
 
         Project::factory()->create([
             'local_id' => 1,
-            'title' => 'Project Title',
-            'link_github' => 'https://github.com/krisna31',
-            'image' => 'Project Image',
+            'title' => 'Simple Notes Management (CRUD App, React, Typescript, Tailwind, Firebase)',
+            'link_github' => 'https://github.com/krisna31/sinodes-tailwind',
+            'image' => '1.jpg',
         ]);
 
         Project::factory()->create([
             'local_id' => 1,
-            'title' => 'Project Title',
-            'link_github' => 'Project Link',
-            'image' => 'Project Image',
+            'title' => 'Website That Use Space-x API',
+            'link_github' => 'https://github.com/krisna31/space-x-api',
+            'image' => '2.jpg',
         ]);
 
         Project::factory()->create([
             'local_id' => 1,
-            'title' => 'Project Title',
-            'link_github' => 'Project Link',
-            'image' => 'Project Image',
+            'title' => 'Website Pengenalan Himif (Fullscreen JS)',
+            'link_github' => 'https://github.com/krisna31/PengenalanHimif',
+            'image' => '3.jpg',
+        ]);
+
+        Project::factory()->create([
+            'local_id' => 1,
+            'title' => 'Website Landing Page With Bootstrap',
+            'link_github' => 'https://github.com/krisna31/Landing-profile',
+            'image' => '4.jpg',
         ]);
     }
 }

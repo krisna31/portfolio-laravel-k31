@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('contact_me_text')->default('Contact Me Text');
             $table->string('contact_me_link')->default('Contact Me Link');
             $table->string('bio_title')->default('Bio Title');
-            $table->string('bio_body')->default('Bio Body');
+            $table->longText('bio_body')->default('Bio Body');
             $table->string('project_title')->default('Project title');
             $table->text('quote_text')->default('Qoute Text');
             $table->string('quote_name')->default('Quote Name');
