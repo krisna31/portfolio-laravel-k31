@@ -9,6 +9,10 @@ class Local extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $casts = [
+        'is_selected' => 'boolean',
+    ];
+
     public function projects()
     {
         return $this->hasMany(Project::class, 'local_id');

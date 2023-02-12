@@ -24,7 +24,7 @@ class LocalRequest extends FormRequest
      */
     public function rules()
     {
-        $id = request()->route('local')->id ?? null;
+        $id = $this->request->get('id');
         return [
             'slug' => [
                 'string',
@@ -39,7 +39,7 @@ class LocalRequest extends FormRequest
             'contact_me_text' => ['string', 'max:255'],
             'contact_me_link' => ['string', 'max:255'],
             'bio_title' => ['string', 'max:255'],
-            'bio_body' => ['string', 'max:255'],
+            'bio_body' => ['string'],
             'project_title' => ['string', 'max:255'],
             'qoute_text' => ['string', 'max:255'],
             'quote_name' => ['string', 'max:255'],

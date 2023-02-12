@@ -72,8 +72,7 @@
                                 <h2 class="text-2xl mb-3 md:text-3xl">
                                     <label class="input-group">
                                         <input name="bio_title" type="text" placeholder="Bio Title"
-                                            class="input input-bordered"
-                                            value="{{ old('bio_title', $local->bio_title) }}" />
+                                            class="input input-bordered" value="{{ old('bio_title', " Bio Title") }}" />
                                     </label>
                                 </h2>
                                 <textarea cols="60" rows="10" name=" bio_body" class="textarea textarea-ghost"

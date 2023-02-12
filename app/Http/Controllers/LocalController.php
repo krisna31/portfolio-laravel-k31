@@ -27,8 +27,22 @@ class LocalController extends Controller
      */
     public function portfolio()
     {
-        $locals = Local::with(['projects','socialMedia'])->get();
-        return response()->view('root', compact('locals'));
+        $local = Local::where('is_selected', 1)->with('projects')->get()->first();
+        if ($local) 
+            return response()->view('root', compact('local'));
+        else
+            return response()->view('original');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard()
+    {
+        $locals = Local::all();
+        return response()->view('dashboard', compact('locals'));
     }
 
     /**
@@ -49,6 +63,19 @@ class LocalController extends Controller
      */
     public function store(LocalRequest $request)
     {
+        Local::create($request->validated());
+        return redirect()->route('local.index')->with('success', 'Data Berhasil Dibuat');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\LocalRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function duplicate(LocalRequest $request)
+    {
+        dd($request->all());
         Local::create($request->validated());
         return redirect()->route('local.index')->with('success', 'Data Berhasil Dibuat');
     }
@@ -84,7 +111,9 @@ class LocalController extends Controller
      */
     public function update(LocalRequest $request, Local $local)
     {
-        $local->update($request->validated());
+        $validatedRequests = $request->validated();
+        $validatedRequests['is_selected'] = $request->has('is_selected');
+        $local->update($validatedRequests);
 
         return redirect()->route('local.index');
     }

@@ -8,14 +8,21 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="{{ route('local.store') }}" class="form-control" method="POST">
+                <form action="{{ route('local.update', $local) }}" class="form-control" method="POST">
+                    @csrf
+                    @method('PUT')
                     <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col items-center">
                         <h1 class="text-2xl mb-3">Edit Data In Local</h1>
+                        <input type="hidden" name="id" value="{{ $local->id }}">
                         <label class="input-group">
                             <input name="slug" autofocus type="text" placeholder="slug" class="input input-bordered"
                                 value="{{ old('slug', $local->slug) }}" />
+                            <label class="cursor-pointer label">
+                                <span class="label-text bg-white mr-2">Use This One?</span>
+                                <input name="is_selected" type="checkbox" {{ old('is_selected', $local->is_selected)
+                                ?'checked="checked" value="1"' : 'value="0"' }} class="checkbox checkbox-success" />
+                            </label>
                         </label>
-                        @csrf
                         @if ($errors->any())
                         <div class="alert alert-error flex flex-col gap-1 ">
                             <p><strong>Opps Something went wrong</strong></p>
