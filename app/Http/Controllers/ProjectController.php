@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProjectRequest;
 use App\Http\Requests\ProjectStoreRequest;
 use App\Http\Requests\ProjectUpdateRequest;
 use App\Models\Local;
 use App\Models\Project;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -21,7 +18,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::with('local')->get();
         return response()->view('project.index', compact('projects'));
     }
 
