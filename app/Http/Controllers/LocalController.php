@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Local;
 use App\Http\Requests\LocalRequest;
-use App\Models\LocalProject;
-use App\Models\LocalSocialMedia;
 
 class LocalController extends Controller
 {
@@ -28,7 +26,7 @@ class LocalController extends Controller
     public function portfolio()
     {
         $local = Local::where('is_selected', 1)->with('projects')->get()->first();
-        if ($local) 
+        if ($local)
             return response()->view('root', compact('local'));
         else
             return response()->view('original');
@@ -68,19 +66,6 @@ class LocalController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\LocalRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function duplicate(LocalRequest $request)
-    {
-        dd($request->all());
-        Local::create($request->validated());
-        return redirect()->route('local.index')->with('success', 'Data Berhasil Dibuat');
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\Local  $local
@@ -107,9 +92,9 @@ class LocalController extends Controller
      *
      * @param  \App\Http\Requests\LocalRequest  $request
      * @param  \App\Models\Local  $local
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(LocalRequest $request, Local $local)
+    public function update(LocalRequest $request, Local $local): \Illuminate\Http\RedirectResponse
     {
         $validatedRequests = $request->validated();
         $validatedRequests['is_selected'] = $request->has('is_selected');
